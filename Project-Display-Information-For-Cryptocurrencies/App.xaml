@@ -1,9 +1,8 @@
 ﻿<Application x:Class="Project_Display_Information_For_Cryptocurrencies.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>
