@@ -4,9 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies"
+        xmlns:viewsmodels="clr-namespace:Project_Display_Information_For_Cryptocurrencies.ViewModels"
+        xmlns:views="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*">
+                
+            </ColumnDefinition>
+            <ColumnDefinition Width="9*">
 
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Column="0" Content="{Binding NavigationBar}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewsmodels:NavigationVerticalBarViewModel}">
+                    <views:NavigationVerticalBar/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
+        <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewsmodels:HomeViewModel}">
+                    <views:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewsmodels:SettingsViewModel}">
+                    <views:SettingsView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </Window>

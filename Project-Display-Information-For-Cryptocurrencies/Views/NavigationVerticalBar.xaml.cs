@@ -1,5 +1,4 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project_Display_Information_For_Cryptocurrencies
+namespace Project_Display_Information_For_Cryptocurrencies.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NavigationVerticalBar.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NavigationVerticalBar : UserControl
     {
-        public MainWindow()
+        public NavigationVerticalBar()
         {
             InitializeComponent();
         }

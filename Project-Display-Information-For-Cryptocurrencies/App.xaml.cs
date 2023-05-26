@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project_Display_Information_For_Cryptocurrencies.Stores;
+using Project_Display_Information_For_Cryptocurrencies.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,14 @@ namespace Project_Display_Information_For_Cryptocurrencies
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel( NavigationStore.GetInstance(), new Stores.NavigationBarStore())
+            };
+            MainWindow.Show();
+            base.OnStartup(e);
+        }
     }
 }
