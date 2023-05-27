@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Project_Display_Information_For_Cryptocurrencies.Models;
+using Project_Display_Information_For_Cryptocurrencies.Service;
+using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +11,33 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
     public class HomeViewModel:BaseViewModel
     {
-        public HomeViewModel() 
-        { 
+        ControlCoin controlCoin;
 
+        private List<Item> coins;
+
+        public List<Item> Coins
+        {
+            get 
+            { 
+                return coins; 
+            }
+            set 
+            { 
+                coins = value;
+                OnPropertyChanged(nameof(Coins));
+            }
+        }
+
+
+        public HomeViewModel()
+        {
+            controlCoin = ControlCoin.GetInstance();
+            InitData();
+        }
+
+        public async void InitData()
+        {
+            Coins = await controlCoin.Trending();
         }
     }
 }
