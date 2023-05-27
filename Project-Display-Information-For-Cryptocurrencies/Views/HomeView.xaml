@@ -7,6 +7,39 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*">
+                
+            </RowDefinition>
+            <RowDefinition Height="6*">
+                
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"  FontSize="24" HorizontalAlignment="Center" Text="Top-7 trending coins"></TextBlock>
+        <ListView Grid.Row="1" Background="{x:Null}" ItemsSource="{Binding Coins}"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Thumb}" Width="24" Height="24" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Coin_id}">Coin_id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Symbol}">Symbol</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Slug}">Slug</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price_btc}">Price to btc</GridViewColumn>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

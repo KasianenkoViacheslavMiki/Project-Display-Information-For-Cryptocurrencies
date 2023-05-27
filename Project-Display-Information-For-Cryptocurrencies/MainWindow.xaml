@@ -9,32 +9,43 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*">
                 
-            </ColumnDefinition>
-            <ColumnDefinition Width="9*">
+            </RowDefinition>
+            <RowDefinition Height="10*">
+                
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Right"  Text="{Binding MessageConnection}" Foreground="{Binding ColorMessageConnection}" Margin="0,0,50,0"></TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*">
 
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
+                </ColumnDefinition>
+                <ColumnDefinition Width="9*">
 
-        <ContentControl Grid.Column="0" Content="{Binding NavigationBar}">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewsmodels:NavigationVerticalBarViewModel}">
-                    <views:NavigationVerticalBar/>
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
-        
-        <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}">
-            <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewsmodels:HomeViewModel}">
-                    <views:HomeView/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewsmodels:SettingsViewModel}">
-                    <views:SettingsView/>
-                </DataTemplate>
-            </ContentControl.Resources>
-        </ContentControl>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl Grid.Column="0" Content="{Binding NavigationBar}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewsmodels:NavigationVerticalBarViewModel}">
+                        <views:NavigationVerticalBar/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+
+            <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewsmodels:HomeViewModel}">
+                        <views:HomeView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewsmodels:SettingsViewModel}">
+                        <views:SettingsView/>
+                    </DataTemplate>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
     </Grid>
 </Window>
