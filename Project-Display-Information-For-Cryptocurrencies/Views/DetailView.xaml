@@ -27,7 +27,7 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image Source="{Binding CurrencyData.Image.Large}" Margin="0,2,6,1"/>
+            <Image Source="{Binding ImageCurrency}" Margin="0,2,6,1"/>
             <Grid Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition>
@@ -55,16 +55,16 @@
                     </RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Row="0" Text="Name"></TextBlock>
-                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="0" Text="{Binding CurrencyData.Name}"></TextBlock>
+                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="0" Text="{Binding NameCurrency}"></TextBlock>
                 <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Row="1" Text="Price"></TextBlock>
-                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="1" Text="{Binding CurrencyData.Market_Data.Current_Price_Target}"></TextBlock>
+                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="1" Text="{Binding PriceCurrency}"></TextBlock>
                 <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Row="2" Text="24 Hour Trading Vol"></TextBlock>
-                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="2" Text="{Binding CurrencyData.Market_Data.Total_Volume_Target}"></TextBlock>
+                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="2" Text="{Binding VolumeCurrency}"></TextBlock>
                 <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Row="3" Text="Price change in 24h"></TextBlock>
-                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="3" Text="{Binding CurrencyData.Market_Data.Price_Change_24h_In_Currency_Target}"></TextBlock>
+                <TextBlock HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="3" Text="{Binding PriceChangeCurrency}"></TextBlock>
             </Grid>
         </Grid>
-        <ListView Grid.Row="2" Background="{x:Null}" ItemsSource="{Binding CurrencyData.Tickers}"  >
+        <ListView Grid.Row="2" Background="{x:Null}" ItemsSource="{Binding Tickers}"  >
 
             <ListView.View>
                 <GridView>

@@ -42,7 +42,12 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             }
             return Instance;
         }
-
+        public ControlPing SettingInstance(Action OnNotHasConnection, Action OnHasConnection)
+        {
+            Instance.OnNotHasConnection = OnNotHasConnection;
+            Instance.OnHasConnection = OnHasConnection;
+            return Instance;
+        }
         public void StartPing()
         {
             cancellationTokenPingToAPI = new CancellationTokenSource();

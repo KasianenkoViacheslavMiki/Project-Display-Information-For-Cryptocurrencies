@@ -12,7 +12,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
     {
         private string priceCurrent = "usd";
 
-        private DetailStore store;
+        public DetailStore store;
 
         private static ServiceDetailData instance;
         private static ServiceDetailData Instance
@@ -32,12 +32,83 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             }
             return Instance;
         }
+        public ServiceDetailData SettingInstance(Action action)
+        {
+            store.CurrentCurrencyChanged += action;
+            return Instance;
+        }
 
-        public string Image => store.CurrencyDetailData.Image.Small;
-        public string Price => store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
-        public string Volume => store.CurrencyDetailData.Market_Data.Total_Volume[priceCurrent].ToString();
-        public List<Ticker> Ticker { get; set; }
+        public event Action? CurrentCurrencyChanged;
 
+        public string? Name
+        {
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    return store.CurrencyDetailData.Name;
+                }
+                return "";
+            }
+        }
+        public string? Image  
+        {
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    return store.CurrencyDetailData.Image.Large;
+                }
+                return "";
+            }
+        }
+        public string? Price
+        {
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                }
+                return "";
+            }
+        }
+        public string? Volume
+        {
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    return store.CurrencyDetailData.Market_Data.Total_Volume[priceCurrent].ToString();
+                }
+                return "";
+            }
+        }
+        public string? PriceChange
+        {
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                }
+                return "";
+            }
+        }
 
+        public IEnumerable<Ticker> Tickers 
+        { 
+            get
+            {
+                if (store.CurrencyDetailData != null)
+                {
+                    foreach (var ticker in store.CurrencyDetailData.Tickers)
+                    {
+                        ticker.TargetCurrencies = priceCurrent;
+                        yield return ticker;
+                    }
+                }
+            } 
+        }
     }
 }
