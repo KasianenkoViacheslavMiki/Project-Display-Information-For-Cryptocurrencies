@@ -11,7 +11,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
     public class HomeViewModel:BaseViewModel
     {
-        ControlCoin controlCoin;
+        ControlCoin coinSystem;
 
         private List<Item> coins;
 
@@ -31,13 +31,13 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
         public HomeViewModel()
         {
-            controlCoin = ControlCoin.GetInstance();
+            coinSystem = ControlCoin.GetInstance();
             InitData();
         }
 
         public async void InitData()
         {
-            Coins = await controlCoin.Trending();
+            Coins = await coinSystem.Trending();
         }
     }
 }

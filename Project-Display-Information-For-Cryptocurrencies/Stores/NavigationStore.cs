@@ -10,7 +10,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Stores
     public class NavigationStore
     {
 
-        private BaseViewModel _currentViewModel;
+        private BaseViewModel _currentViewModel = new HomeViewModel();
 
         public BaseViewModel CurrentViewModel
         {

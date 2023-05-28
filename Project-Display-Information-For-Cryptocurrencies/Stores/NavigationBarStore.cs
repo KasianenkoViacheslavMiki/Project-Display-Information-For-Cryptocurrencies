@@ -36,7 +36,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Stores
             set => instance = value;
         }
         public NavigationBarStore() { }
-        public NavigationBarStore GetInstance()
+        public static NavigationBarStore GetInstance()
         {
             if (Instance == null)
             {
