@@ -50,16 +50,26 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
 
         public async Task<IEnumerable<CoinData>> Trending()
         {
-            var responce = await httpClient.GetFromJsonAsync<Root>(urlAPI + "/search/trending");
+            var responce = await httpClient.GetFromJsonAsync<Trending>(urlAPI + "/search/trending");
             if (responce == null)
             {
                 throw new ArgumentNullException("Responce is null");
             }
-            if (responce.coins.Count == 0)
+            if (responce.Coins.Count == 0)
             {
                 throw new Exception("Have`t data");
             }
-            return responce.coins.ToList();
+            return responce.Coins.ToList();
+        }
+
+        public async Task<CurrencyDetailData> GetDetailData(string id)
+        {
+            var responce = await httpClient.GetFromJsonAsync<CurrencyDetailData>(urlAPI + "/coins/"+ id + "?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false");
+            if (responce == null)
+            {
+                throw new ArgumentNullException("Responce is null");
+            }
+            return responce;
         }
     }
 }

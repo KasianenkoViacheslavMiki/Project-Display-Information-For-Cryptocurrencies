@@ -11,5 +11,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service.Interface
     public interface ICoins
     {
         public Task<IEnumerable<CoinData>> Trending();
+        public Task<CurrencyDetailData> GetDetailData(string id);
     }
 }

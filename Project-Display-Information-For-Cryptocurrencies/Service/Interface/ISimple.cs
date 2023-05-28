@@ -8,5 +8,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service.Interface
 {
     public interface ISimple
     {
+
     }
 }
