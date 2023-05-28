@@ -3,6 +3,7 @@ using Project_Display_Information_For_Cryptocurrencies.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,7 +60,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
                 {
                     return store.CurrencyDetailData.Image.Large;
                 }
-                return "";
+                return "https://bitcoin.org/img/icons/opengraph.png?1682978874";
             }
         }
         public string? Price
