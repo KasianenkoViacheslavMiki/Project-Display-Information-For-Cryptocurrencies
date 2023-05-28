@@ -55,9 +55,8 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
             this.viewStore = viewStore;
             this.navigationStore = navigationStore;
-            this.pingSystem = ControlPing.GetInstance();
-            this.pingSystem.OnNotHasConnection += OnSetFalseConnection;
-            this.pingSystem.OnHasConnection += OnSetTrueConnection;
+            this.pingSystem = ControlPing.GetInstance()
+                                         .SettingInstance(OnSetFalseConnection, OnSetTrueConnection);
             this.pingSystem.StartPing();
         }
 

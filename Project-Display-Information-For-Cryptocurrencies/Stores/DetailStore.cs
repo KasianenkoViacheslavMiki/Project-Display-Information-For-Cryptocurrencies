@@ -12,8 +12,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.Stores
         private CurrencyDetailData currencyDetailData;
 
         public event Action? CurrentCurrencyChanged;
-
-
         private void OnCurrentCurrencyChanged()
         {
             CurrentCurrencyChanged?.Invoke();

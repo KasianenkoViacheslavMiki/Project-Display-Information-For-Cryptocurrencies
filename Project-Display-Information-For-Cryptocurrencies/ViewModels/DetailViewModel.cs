@@ -14,37 +14,44 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
     public class DetailViewModel : BaseViewModel
     {
 
-        private readonly DetailStore store;
+        private readonly ServiceDetailData serviceDetailData;
 
         private Item viewDetail;
         private ControlCoin coinsSystem;
 
-        public OpenBrowserCommand OpenBrowserCommand { get; set; }
+        public string NameCurrency => serviceDetailData.Name;
+        public string PriceCurrency => serviceDetailData.Price;
+        public string VolumeCurrency => serviceDetailData.Volume;
+        public string ImageCurrency => serviceDetailData.Image;
+        public string PriceChangeCurrency => serviceDetailData.PriceChange;
 
-        public CurrencyDetailData CurrencyData
+        public List<Ticker> Tickers
         {
-            get => store.CurrencyDetailData;
+            get => serviceDetailData.Tickers.ToList();
         }
 
         public DetailViewModel(Item viewDetail)
         {
             this.viewDetail = viewDetail;
             coinsSystem = ControlCoin.GetInstance();
-            store = DetailStore.GetInstance();
-            store.CurrentCurrencyChanged += OnCurrentCurrencyChanged;
-            OpenBrowserCommand = new OpenBrowserCommand();
+            serviceDetailData = ServiceDetailData.GetInstance()
+                                                 .SettingInstance(OnCurrentCurrencyChanged);
             InitDetail();
         }
 
         private void OnCurrentCurrencyChanged()
         {
-            OnPropertyChanged(nameof(CurrencyData));
+            OnPropertyChanged(nameof(NameCurrency));
+            OnPropertyChanged(nameof(PriceCurrency));
+            OnPropertyChanged(nameof(VolumeCurrency));
+            OnPropertyChanged(nameof(ImageCurrency));
+            OnPropertyChanged(nameof(PriceChangeCurrency));
+            OnPropertyChanged(nameof(Tickers));
         }
 
         public async void InitDetail()
         {
-            store.CurrencyDetailData = await coinsSystem.GetCurrencyDetailAsync(viewDetail.Id);
-            store.CurrencyDetailData.Market_Data.targetCurrent = "usd";
+            serviceDetailData.store.CurrencyDetailData = await coinsSystem.GetCurrencyDetailAsync(viewDetail.Id);
         }
     }
 }
