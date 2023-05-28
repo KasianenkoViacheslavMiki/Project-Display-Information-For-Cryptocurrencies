@@ -35,7 +35,17 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         }
         public ServiceDetailData SettingInstance(Action action)
         {
-            store.CurrentCurrencyChanged += action;
+            if (CurrentCurrencyChanged == null)
+            {
+                CurrentCurrencyChanged = action;
+                store.CurrentCurrencyChanged += action;
+            }
+            else
+            {
+                store.CurrentCurrencyChanged -= CurrentCurrencyChanged;
+                store.CurrentCurrencyChanged += action;
+                CurrentCurrencyChanged = action;
+            }
             return Instance;
         }
 
