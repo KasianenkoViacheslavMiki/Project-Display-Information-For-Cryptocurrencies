@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Project_Display_Information_For_Cryptocurrencies.Commands.UICommands
 {
-    public class ChangePageCommand : CommandBase
+    public class EventCommand : CommandBase
     {
-        public Action OnNextPageCommand { get; set; }
+        public Action OnEventCommand { get; set; }
 
-        public ChangePageCommand(Action onNextPageCommand)
+        public EventCommand(Action onEventCommand)
         {
-            OnNextPageCommand = onNextPageCommand;
+            OnEventCommand = onEventCommand;
         }
 
         public override void Execute(object? parameter)
         {
-            OnNextPageCommand?.Invoke();
+            OnEventCommand?.Invoke();
         }
     }
 }
