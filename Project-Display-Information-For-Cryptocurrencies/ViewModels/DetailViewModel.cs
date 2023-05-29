@@ -16,7 +16,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
         private readonly ServiceDetailData serviceDetailData;
 
-        private Item viewDetail;
+        private string id;
         private ControlCoin coinsSystem;
 
         public string NameCurrency => serviceDetailData.Name;
@@ -30,9 +30,9 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
             get => serviceDetailData.Tickers.ToList();
         }
 
-        public DetailViewModel(Item viewDetail)
+        public DetailViewModel(string id)
         {
-            this.viewDetail = viewDetail;
+            this.id = id;
             coinsSystem = ControlCoin.GetInstance();
             serviceDetailData = ServiceDetailData.GetInstance()
                                                  .SettingInstance(OnCurrentCurrencyChanged);
@@ -51,7 +51,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
         public async void InitDetail()
         {
-            serviceDetailData.store.CurrencyDetailData = await coinsSystem.GetCurrencyDetailAsync(viewDetail.Id);
+            serviceDetailData.store.CurrencyDetailData = await coinsSystem.GetCurrencyDetailAsync(id);
         }
     }
 }

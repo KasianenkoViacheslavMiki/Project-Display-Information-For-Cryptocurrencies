@@ -34,7 +34,7 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         <Button Content="Main" Grid.Row="0" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding HomeCommand}"></Button>
-        <Button Content="Search" Grid.Row="1" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding HomeCommand}" ></Button>
+        <Button Content="List" Grid.Row="1" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding ListCommand}" ></Button>
         <Button Content="Setting" Grid.Row="6" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding SettingsCommand}"></Button>
     </Grid>
 </UserControl>

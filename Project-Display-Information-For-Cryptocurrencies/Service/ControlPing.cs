@@ -19,7 +19,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         private Task pingToAPI;
         private CancellationTokenSource cancellationTokenPingToAPI;
 
-        public ControlPing(IPing ping)
+        private ControlPing(IPing ping)
         {
             this.ping = ping;
             this.hasConnection = false;
