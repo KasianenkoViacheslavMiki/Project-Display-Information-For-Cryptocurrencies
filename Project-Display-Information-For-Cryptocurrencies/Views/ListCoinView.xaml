@@ -99,14 +99,14 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button FontSize="16" Content="Prev" Grid.Column="3" RenderTransformOrigin="0.5,0.5">
+            <Button Command="{Binding PrevPageCommand}" IsEnabled="{Binding EnablePrevButton}" FontSize="16" Content="Prev" Grid.Column="3" RenderTransformOrigin="0.5,0.5">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"></Setter>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button FontSize="16" Content="Next" Grid.Column="5">
+            <Button Command="{Binding NextPageCommand}" IsEnabled="{Binding EnableNextButton}" FontSize="16" Content="Next" Grid.Column="5">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"></Setter>
