@@ -1,4 +1,5 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
+﻿using Project_Display_Information_For_Cryptocurrencies.Commands.UICommands;
+using Project_Display_Information_For_Cryptocurrencies.Models;
 using Project_Display_Information_For_Cryptocurrencies.Service;
 using System;
 using System.Collections.Generic;
@@ -17,17 +18,86 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
         public ListCoinViewModel()
         {
+            NextPageCommand = new ChangePageCommand(OnNextPage);
+            PrevPageCommand = new ChangePageCommand(OnPrevPage);
+
             coinsSystem = ControlCoin.GetInstance();
             this.serviceListCoinStore = ServiceListCoinStore.GetInstance()
                                                             .SettingInstance(OnListCoinChanged);
+            EnableNextButton = true;
+            EnablePrevButton = true;
             UpdateData();
         }
+        private bool enableNextButton;
+        public bool EnableNextButton
+        {
+            get
+            {
+                return enableNextButton;
+            }
+            set
+            {
+                enableNextButton = value;
+                OnPropertyChanged(nameof(EnableNextButton));
+            }
+        }
+        private bool enablePrevtButton;
+        public bool EnablePrevButton
+        {
+            get
+            {
+                return enablePrevtButton;
+            }
+            set
+            {
+                enablePrevtButton = value;
+                OnPropertyChanged(nameof(EnablePrevButton));
+            }
+        }
+        private void OnNextPage()
+        {
+            ++page;
+            EnablePrevButton = true;
+            OnFirstPage();
+            OnLastPage();
+            UpdateData();
+        }
+        private void OnPrevPage()
+        {
+            --page;
+            enableNextButton = true;
+            OnFirstPage();
+            OnLastPage();
+            UpdateData();
+        }
+
+        private void OnFirstPage()
+        {
+            if (page == 1)
+            {
+                EnablePrevButton = false;
+            }
+        }
+
+        private void OnLastPage()
+        {
+            if (serviceListCoinStore.ListCoinStore.ListCoins.Count == 0)
+            {
+                EnableNextButton = false;
+            }
+        }
+
+        public  ChangePageCommand NextPageCommand { get; set; }
+        public ChangePageCommand PrevPageCommand { get; set; }
+
 
         public List<Coin> CoinList=>serviceListCoinStore.ListCoinStore.ListCoins;
 
         public async void UpdateData()
         {
             serviceListCoinStore.ListCoinStore.ListCoins = await coinsSystem.GetCoinsAsync(page);
+            OnFirstPage();
+            OnLastPage();
         }
         public async void SearchData(string id)
         {
