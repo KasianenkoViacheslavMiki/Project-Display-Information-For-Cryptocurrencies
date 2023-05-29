@@ -40,7 +40,11 @@
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" Text="Search" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="0,0,10,0"></TextBlock>
-            <TextBox Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="24"  />
+            <TextBox Text="{Binding SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="24" >
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Return" Command="{Binding EnterCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
         </Grid>
         <ListView Grid.Row="3" Background="{x:Null}" ItemsSource="{Binding CoinList}"  >
             <ListView.View>
