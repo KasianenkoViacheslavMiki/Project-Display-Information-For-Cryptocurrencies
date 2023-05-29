@@ -11,6 +11,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace Project_Display_Information_For_Cryptocurrencies.Service
 {
@@ -30,8 +31,9 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         {
             System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-            httpClient.BaseAddress = new Uri(urlAPI);
             httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("User-Agent",
+                                 "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident / 6.0)");
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/Json"));
         }
         public static ServiceAPI GetInstance()
@@ -48,7 +50,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             return httpClient.GetAsync(urlAPI+"/ping");
         }
 
-        public async Task<IEnumerable<CoinData>> Trending()
+        public async Task<IEnumerable<TrendingData>> Trending()
         {
             var responce = await httpClient.GetFromJsonAsync<Trending>(urlAPI + "/search/trending");
             if (responce == null)
@@ -70,6 +72,23 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
                 throw new ArgumentNullException("Responce is null");
             }
             return responce;
+        }
+
+        public async Task<List<Coin>> GetCoins(int page, string ids = " ", string vs_currency = "usd", int per_page = 100)
+        {
+            try
+            {
+                var responce = await httpClient.GetFromJsonAsync<List<Coin>>(urlAPI + "/coins/markets?vs_currency=" + vs_currency + "&ids=" + ids + "&order=market_cap_desc&per_page=" + per_page + "&page=" + page + "&locale=en");
+                if (responce == null)
+                {
+                    throw new ArgumentNullException("Responce is null");
+                }
+                return responce;
+            }
+            catch (Exception ex)
+            {
+                return new List<Coin>();
+            }
         }
     }
 }

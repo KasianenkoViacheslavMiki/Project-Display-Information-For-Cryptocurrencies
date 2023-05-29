@@ -49,5 +49,12 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             var coinsAPI = await coins.GetDetailData(id);
             return coinsAPI;
         }
+
+        public async Task<List<Coin>> GetCoinsAsync(int page, string ids = " ", string vs_currency = "usd", int per_page = 100)
+        {
+            var coinsAPI = await coins.GetCoins(page, ids, vs_currency, per_page);
+            return coinsAPI;
+        }
+
     }
 }

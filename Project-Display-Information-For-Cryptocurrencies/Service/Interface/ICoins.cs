@@ -10,7 +10,8 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service.Interface
 {
     public interface ICoins
     {
-        public Task<IEnumerable<CoinData>> Trending();
+        public Task<IEnumerable<TrendingData>> Trending();
         public Task<CurrencyDetailData> GetDetailData(string id);
+        public Task<List<Coin>> GetCoins(int page, string ids="", string vs_currency = "usd", int per_page=100);
     }
 }

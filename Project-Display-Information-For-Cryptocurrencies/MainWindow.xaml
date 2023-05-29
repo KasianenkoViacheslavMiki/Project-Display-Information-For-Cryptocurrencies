@@ -35,7 +35,6 @@
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
-
             <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type viewsmodels:HomeViewModel}">
@@ -46,6 +45,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type viewsmodels:DetailViewModel}">
                         <views:DetailView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewsmodels:ListCoinViewModel}">
+                        <views:ListCoinView/>
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
