@@ -6,6 +6,10 @@
              xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="ButtonBrush" Color="{Binding ForegroundColor}"/>
+        <SolidColorBrush x:Key="ButtonFontBrush" Color="{Binding ButtonColor}"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*">
@@ -39,7 +43,7 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Search" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="0,0,10,0"></TextBlock>
+            <Label Grid.Column="0" Content="Search" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="0,0,10,0"></Label>
             <TextBox Text="{Binding SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="24" >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Return" Command="{Binding EnterCommand}" />
@@ -66,7 +70,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
+                                <Button Content="Detail" Command="{Binding ShowDetailCommand}" Background="{Binding Mode=OneWay, Source={StaticResource ButtonBrush}}" Foreground="{Binding Mode=OneWay, Source={StaticResource ButtonFontBrush}}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
