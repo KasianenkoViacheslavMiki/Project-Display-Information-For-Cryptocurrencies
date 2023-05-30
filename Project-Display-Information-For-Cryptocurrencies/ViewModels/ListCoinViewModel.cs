@@ -20,7 +20,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
         {
             NextPageCommand = new EventCommand(OnNextPage);
             PrevPageCommand = new EventCommand(OnPrevPage);
-            EnterCommand = new EventCommand(OnEnter);
 
             coinsSystem = ControlCoin.GetInstance();
             this.serviceListCoinStore = ServiceListCoinStore.GetInstance()
@@ -54,23 +53,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
                 enablePrevtButton = value;
                 OnPropertyChanged(nameof(EnablePrevButton));
             }
-        }
-        private string searchString;
-        public string SearchString
-        {
-            get
-            {
-                return searchString;
-            }
-            set
-            {
-                searchString = value;
-                OnPropertyChanged(nameof(SearchString));
-            }
-        }
-        private void OnEnter()
-        {
-            SearchData(SearchString);
         }
 
         private void OnNextPage()
@@ -108,9 +90,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 
         public  EventCommand NextPageCommand { get; set; }
         public EventCommand PrevPageCommand { get; set; }
-        public EventCommand EnterCommand { get; set; }
-
-
 
         public List<Coin> CoinList=>serviceListCoinStore.ListCoinStore.ListCoins;
 
@@ -120,13 +99,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
             OnFirstPage();
             OnLastPage();
         }
-        public async void SearchData(string id)
-        {
-            serviceListCoinStore.ListCoinStore.ListCoins = await coinsSystem.GetCoinsAsync(page,id.ToLower());
-            OnFirstPage();
-            OnLastPage();
-        }
-
+      
         private void OnListCoinChanged()
         {
             OnPropertyChanged(nameof(CoinList));

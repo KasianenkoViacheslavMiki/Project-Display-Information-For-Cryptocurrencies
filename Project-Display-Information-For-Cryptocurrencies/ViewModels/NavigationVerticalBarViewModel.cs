@@ -15,12 +15,13 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
         {
             HomeCommand = new NavigationCommand<HomeViewModel>(NavigationStore.GetInstance() ,()=>new HomeViewModel());
             ListCommand = new NavigationCommand<ListCoinViewModel>(NavigationStore.GetInstance(), () => new ListCoinViewModel());
+            SearchCommand = new NavigationCommand<SearchViewModel>(NavigationStore.GetInstance(), () => new SearchViewModel());
             SettingsCommand = new NavigationCommand<SettingsViewModel>(NavigationStore.GetInstance(), () => new SettingsViewModel());
         }
 
         public ICommand HomeCommand{ get;}
         public ICommand ListCommand { get; }
-
+        public ICommand SearchCommand { get; }
         public ICommand SettingsCommand { get; }
 
         public override void Dispose()

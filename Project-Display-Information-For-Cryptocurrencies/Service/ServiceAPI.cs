@@ -11,11 +11,12 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Shapes;
 
 namespace Project_Display_Information_For_Cryptocurrencies.Service
 {
-    public class ServiceAPI:IPing,ICoins
+    public class ServiceAPI:IPing,ICoins, ISearch
     {
         readonly string urlAPI = "https://api.coingecko.com/api/v3"; 
 
@@ -74,16 +75,33 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             return responce;
         }
 
-        public async Task<List<Coin>> GetCoins(int page, string ids = " ", string vs_currency = "usd", int per_page = 100)
+        public async Task<List<Coin>> GetCoins(int page, string vs_currency = "usd", int per_page = 100)
         {
             try
             {
-                var responce = await httpClient.GetFromJsonAsync<List<Coin>>(urlAPI + "/coins/markets?vs_currency=" + vs_currency + "&ids=" + ids + "&order=market_cap_desc&per_page=" + per_page + "&page=" + page + "&locale=en");
+                var responce = await httpClient.GetFromJsonAsync<List<Coin>>(urlAPI + "/coins/markets?vs_currency=" + vs_currency + "&order=market_cap_desc&per_page=" + per_page + "&page=" + page + "&locale=en");
                 if (responce == null)
                 {
                     throw new ArgumentNullException("Responce is null");
                 }
                 return responce;
+            }
+            catch (Exception ex)
+            {
+                return new List<Coin>();
+            }
+        }
+
+        public async Task<List<Coin>> GetCoinsAsync(string query)
+        {
+            try
+            {
+                var responce = await httpClient.GetFromJsonAsync<SearchCoin>(urlAPI + "/search?query="+query);
+                if (responce == null)
+                {
+                    throw new ArgumentNullException("Responce is null");
+                }
+                return responce.Coins;
             }
             catch (Exception ex)
             {

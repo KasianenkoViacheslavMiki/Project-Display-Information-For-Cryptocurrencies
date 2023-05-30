@@ -73,6 +73,9 @@
                     <DataTemplate DataType="{x:Type viewsmodels:ListCoinViewModel}">
                         <views:ListCoinView/>
                     </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewsmodels:SearchViewModel}">
+                        <views:SearchView/>
+                    </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
         </Grid>
