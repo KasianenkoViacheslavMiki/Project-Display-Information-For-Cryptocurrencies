@@ -16,9 +16,10 @@ A list of implemented functionality:
 <img src="https://i.imgur.com/5YQgVK6.png" border="0"/>
 
 3. Window with all coins
-<img src="https://i.imgur.com/RJaPyyq.png" border="0"/> 
+<img src="https://i.imgur.com/xalfx1G.png" border="0"/> 
 
 4. Window search coins
+<img src="https://i.imgur.com/lyb6EVn.png" border="0"/> 
 
 5. Toggle Light/dark theme.
-<img src="https://i.imgur.com/TWble2G.png" border="0"/> 
+<img src="https://i.imgur.com/3mgtyWg.png" border="0"/> 
