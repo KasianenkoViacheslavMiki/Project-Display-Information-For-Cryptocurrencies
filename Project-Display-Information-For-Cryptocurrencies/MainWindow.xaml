@@ -8,17 +8,42 @@
         xmlns:views="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
+    <Window.Resources>
+
+        <Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
+            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
+            <Setter Property="Background" Value="{Binding ButtonColor}" />
+        </Style>
+        <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource ListViewStyle}"/>
+
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
+        </Style>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource TextBlockStyle}"/>
+
+        <Style  x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
+            <Setter Property="Background" Value="{Binding  ButtonColor}" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}"/>
+        <Style  x:Key="GridStyle" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="{Binding BackgroundColor}" />
+        </Style>
+        <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource GridStyle}"/>
+
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*">
+            <RowDefinition Height="0.6*">
                 
             </RowDefinition>
             <RowDefinition Height="10*">
                 
             </RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" HorizontalAlignment="Right"  Text="{Binding MessageConnection}" Foreground="{Binding ColorMessageConnection}" Margin="0,0,50,0"></TextBlock>
-        <Grid Grid.Row="1">
+        <Rectangle Grid.Row="0" Fill="{Binding ColorMessageConnection}" />
+        <Label Grid.Row="0" HorizontalAlignment="Right"  Content="{Binding MessageConnection}"  Margin="0,0,50,0"></Label>
+        <Grid Grid.Row="1" Background="{Binding Mode=OneWay, Source={StaticResource GridStyle}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.8*">
 
@@ -27,7 +52,6 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-
             <ContentControl Grid.Column="0" Content="{Binding NavigationBar}">
                 <ContentControl.Resources>
                     <DataTemplate DataType="{x:Type viewsmodels:NavigationVerticalBarViewModel}">

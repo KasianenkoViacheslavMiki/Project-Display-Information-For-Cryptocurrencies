@@ -6,9 +6,12 @@
              xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Grid.Row="1">
+    <Grid Background="#00000000">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.4*">
+            <RowDefinition Height="0.3*">
+
+            </RowDefinition>
+            <RowDefinition Height="0.3*">
 
             </RowDefinition>
             <RowDefinition Height="0.4*">
@@ -23,18 +26,19 @@
             <RowDefinition Height="0.4*">
 
             </RowDefinition>
-            <RowDefinition Height="0.4*">
-
-            </RowDefinition>
-            <RowDefinition Height="0.4*">
+            <RowDefinition Height="0.3*">
 
             </RowDefinition>
             <RowDefinition Height="0.9*">
 
             </RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Main" Grid.Row="0" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding HomeCommand}"></Button>
-        <Button Content="List" Grid.Row="1" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding ListCommand}" ></Button>
-        <Button Content="Setting" Grid.Row="6" BorderBrush="{x:Null}" Background="{x:Null}" Command="{Binding SettingsCommand}"></Button>
+        <Button Content="Main" Grid.Row="0" BorderBrush="{x:Null}" Command="{Binding HomeCommand}" FontFamily="Microsoft JhengHei">
+  
+        </Button>
+        <Button Content="List" Grid.Row="1" BorderBrush="{x:Null}"  Command="{Binding ListCommand}" FontFamily="Microsoft JhengHei">
+        </Button>
+        <Button Content="Setting" Grid.Row="6" BorderBrush="{x:Null}"  Command="{Binding SettingsCommand}" FontFamily="Microsoft JhengHei">
+        </Button>
     </Grid>
 </UserControl>

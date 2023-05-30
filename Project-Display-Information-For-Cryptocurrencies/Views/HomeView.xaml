@@ -6,6 +6,10 @@
              xmlns:local="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="ButtonBrush" Color="{Binding ForegroundColor}"/>
+        <SolidColorBrush x:Key="ButtonFontBrush" Color="{Binding ButtonColor}"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*">
@@ -15,8 +19,8 @@
                 
             </RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"  FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Top-7 trending coins"></TextBlock>
-        <ListView Grid.Row="1" Background="{x:Null}" ItemsSource="{Binding Coins}"  >
+        <Label Grid.Row="0"  FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Top-7 trending coins"></Label>
+        <ListView Grid.Row="1" Background="{x:Null}" ItemsSource="{Binding Coins}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn>
@@ -34,7 +38,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
+                                <Button Content="Detail" Command="{Binding ShowDetailCommand}" Background="{Binding Mode=OneWay, Source={StaticResource ButtonBrush}}" Foreground="{Binding Mode=OneWay, Source={StaticResource ButtonFontBrush}}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
