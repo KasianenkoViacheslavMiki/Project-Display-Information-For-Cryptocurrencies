@@ -1,5 +1,7 @@
 ﻿using Project_Display_Information_For_Cryptocurrencies.Commands.UICommands;
 using System;
+using System.Collections;
+using System.Windows.Documents;
 
 namespace Project_Display_Information_For_Cryptocurrencies.Models
 {
@@ -9,8 +11,10 @@ namespace Project_Display_Information_For_Cryptocurrencies.Models
         public string? Symbol { get; set; }
         public string? Name { get; set; }
         public string? Image { get; set; }
+        public string? Thumb { get; set; }
         public decimal? Current_price { get; set; }
         public decimal? Market_cap { get; set; }
+        public string? Api_symbol { get; set; }
         public int? Market_cap_rank { get; set; }
         public decimal? Fully_diluted_valuation { get; set; }
         public decimal? Total_volume { get; set; }
