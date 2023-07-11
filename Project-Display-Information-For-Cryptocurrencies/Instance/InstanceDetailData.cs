@@ -79,7 +79,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Instance
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    //return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                    return store.CurrencyDetailData.MarketData.PriceChange24hInCurrency[priceCurrent].ToString();
                 }
                 return "";
             }
@@ -90,7 +90,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Instance
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    //return store.CurrencyDetailData.Market_Data.Total_Volume[priceCurrent].ToString();
+                    return store.CurrencyDetailData.MarketData.TotalVolume[priceCurrent].ToString();
                 }
                 return "";
             }
@@ -101,7 +101,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Instance
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    //return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                    return store.CurrencyDetailData.MarketData.PriceChange24hInCurrency[priceCurrent].ToString();
                 }
                 return "";
             }
