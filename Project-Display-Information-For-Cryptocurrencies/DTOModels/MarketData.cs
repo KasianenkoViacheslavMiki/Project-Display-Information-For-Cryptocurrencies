@@ -13,7 +13,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.DTOModels
 
         [DataMember(Name = "total_volume")]
         [JsonPropertyName("total_volume")]
-        public Dictionary<string, decimal>? Total_Volume { get; set; }
+        public Dictionary<string, decimal>? TotalVolume { get; set; }
 
         [DataMember(Name = "high_24h")]
         [JsonPropertyName("high_24h")]
