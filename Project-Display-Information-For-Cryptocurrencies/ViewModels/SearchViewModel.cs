@@ -1,5 +1,6 @@
 ﻿using Project_Display_Information_For_Cryptocurrencies.Commands.UICommands;
-using Project_Display_Information_For_Cryptocurrencies.Models;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
+using Project_Display_Information_For_Cryptocurrencies.Instance;
 using Project_Display_Information_For_Cryptocurrencies.Service;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
     class SearchViewModel:BaseViewModel
     {
         private string searchString;
-        private ServiceSearch searchSystem;
+        private InstanceStoreListCoin searchSystem;
 
         public List<Coin> CoinList => searchSystem.ListCoinStore.ListCoins;
 
@@ -21,7 +22,8 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
         public SearchViewModel()
         {
             EnterCommand = new EventCommand(OnEnter);
-            this.searchSystem = ServiceSearch.GetInstance()
+
+            this.searchSystem = InstanceStoreListCoin.GetInstance()
                                              .SettingInstance(OnListCoinChanged);
             if (CoinList == null || CoinList.Count == 0)
             {

@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Display_Information_For_Cryptocurrencies.Service.Interface
+namespace Project_Display_Information_For_Cryptocurrencies.API.Interface
 {
     public interface IPing
     {

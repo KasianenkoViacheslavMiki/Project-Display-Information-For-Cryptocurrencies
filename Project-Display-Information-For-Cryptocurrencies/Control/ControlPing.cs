@@ -1,4 +1,5 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
+﻿using Project_Display_Information_For_Cryptocurrencies.API;
+using Project_Display_Information_For_Cryptocurrencies.API.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Project_Display_Information_For_Cryptocurrencies.Service
+namespace Project_Display_Information_For_Cryptocurrencies.Control
 {
     public class ControlPing
     {
@@ -22,7 +23,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         private ControlPing(IPing ping)
         {
             this.ping = ping;
-            this.hasConnection = false;
+            hasConnection = false;
         }
 
         public event Action OnHasConnection;
@@ -38,7 +39,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         {
             if (Instance == null)
             {
-                Instance = new ControlPing(ServiceAPI.GetInstance());
+                Instance = new ControlPing(APIClient.GetInstance());
             }
             return Instance;
         }
@@ -58,7 +59,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
                     HttpResponseMessage pingResponce = await ping.Ping();
                     if (pingResponce != null)
                     {
-                        if (pingResponce.StatusCode == System.Net.HttpStatusCode.OK)
+                        if (pingResponce.StatusCode == HttpStatusCode.OK)
                         {
                             OnHasConnection?.Invoke();
                         }

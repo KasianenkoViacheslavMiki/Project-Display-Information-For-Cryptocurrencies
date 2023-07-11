@@ -1,45 +1,49 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
-using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
+﻿using Project_Display_Information_For_Cryptocurrencies.API;
+using Project_Display_Information_For_Cryptocurrencies.API.Interface;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 using Project_Display_Information_For_Cryptocurrencies.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
-namespace Project_Display_Information_For_Cryptocurrencies.Service
+namespace Project_Display_Information_For_Cryptocurrencies.Instance
 {
-    public class ServiceSearch
+    public class InstanceStoreListCoin
     {
-        private ListCoinStore listCoinStore;
-        private ISearch searchControl; 
-        public ListCoinStore ListCoinStore
-        {
-            get => listCoinStore;
-            set => listCoinStore = value;
-        }
 
-        private static ServiceSearch instance;
-        private static ServiceSearch Instance
+        private string priceCurrent = "usd";
+
+        private ListCoinStore listCoinStore;
+        private ISearch searchControl;
+
+        private static InstanceStoreListCoin instance;
+        private static InstanceStoreListCoin Instance
         {
             get => instance;
             set => instance = value;
         }
-        public ServiceSearch()
-        {
-            listCoinStore = ListCoinStore.GetInstance();
-            searchControl = ServiceAPI.GetInstance();
+        public ListCoinStore ListCoinStore 
+        { 
+            get => listCoinStore; 
+            set => listCoinStore = value; 
         }
-        public static ServiceSearch GetInstance()
+
+        public InstanceStoreListCoin()
+        {
+            searchControl = APIClient.GetInstance();
+            listCoinStore = ListCoinStore.GetInstance();
+        }
+        public static InstanceStoreListCoin GetInstance()
         {
             if (Instance == null)
             {
-                Instance = new ServiceSearch();
+                Instance = new InstanceStoreListCoin();
             }
             return Instance;
         }
-        public ServiceSearch SettingInstance(Action action)
+        public InstanceStoreListCoin SettingInstance(Action action)
         {
             if (ListChanged == null)
             {
@@ -57,9 +61,10 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
 
         public event Action? ListChanged;
 
-        public async Task<List<Coin>> Search(string query) 
+        public async Task<List<Coin>> Search(string query)
         {
             var coinsAPI = await searchControl.GetCoinsAsync(query);
+            ListChanged?.Invoke();
             return coinsAPI;
         }
 

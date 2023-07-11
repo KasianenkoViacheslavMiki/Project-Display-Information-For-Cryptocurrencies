@@ -1,5 +1,4 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;

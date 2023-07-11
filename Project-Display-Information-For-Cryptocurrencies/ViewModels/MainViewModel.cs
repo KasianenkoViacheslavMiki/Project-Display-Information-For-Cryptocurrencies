@@ -1,5 +1,5 @@
 ﻿using Project_Display_Information_For_Cryptocurrencies.Commands.UICommands;
-using Project_Display_Information_For_Cryptocurrencies.Service;
+using Project_Display_Information_For_Cryptocurrencies.Control;
 using Project_Display_Information_For_Cryptocurrencies.Stores;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,6 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
         private bool hasConnection;
         private string messageConnection;
         private NavigationStore viewStore;
-        private NavigationBarStore navigationStore;
         private ControlPing pingSystem;
 
         public bool HasConnection
@@ -47,22 +46,21 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
             }
         }
 
-        public MainViewModel(NavigationStore viewStore, NavigationBarStore navigationStore)
+        public MainViewModel(NavigationStore viewStore)
         {
             hasConnection = false;
 
             viewStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
             this.viewStore = viewStore;
-            this.navigationStore = navigationStore;
             this.pingSystem = ControlPing.GetInstance()
                                          .SettingInstance(OnSetFalseConnection, OnSetTrueConnection);
             this.pingSystem.StartPing();
         }
 
         public BaseViewModel SelectedViewModel => viewStore.CurrentViewModel;
-        public BaseViewModel NavigationBar => navigationStore.CurrentViewModel;
-
+        
+        public BaseViewModel NavigationBar => new NavigationVerticalBarViewModel();
 
         public void OnCurrentViewModelChanged()
         {

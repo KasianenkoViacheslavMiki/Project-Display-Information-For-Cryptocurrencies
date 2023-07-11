@@ -1,4 +1,4 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
+﻿using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

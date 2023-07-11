@@ -1,5 +1,4 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
-using Project_Display_Information_For_Cryptocurrencies.Stores;
+﻿using Project_Display_Information_For_Cryptocurrencies.Stores;
 using Project_Display_Information_For_Cryptocurrencies.ViewModels;
 using System;
 using System.Collections.Generic;
