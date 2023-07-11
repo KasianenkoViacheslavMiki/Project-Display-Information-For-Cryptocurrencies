@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="ButtonBrush" Color="{Binding ForegroundColor}"/>
-        <SolidColorBrush x:Key="ButtonFontBrush" Color="{Binding ButtonColor}"/>
+        
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -64,7 +63,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Detail" Command="{Binding ShowDetailCommand}" Background="{Binding Mode=OneWay, Source={StaticResource ButtonBrush}}" Foreground="{Binding Mode=OneWay, Source={StaticResource ButtonFontBrush}}"/>
+                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

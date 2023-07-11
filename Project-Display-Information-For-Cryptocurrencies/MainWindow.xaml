@@ -8,30 +8,6 @@
         xmlns:views="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
-    <Window.Resources>
-
-        <Style x:Key="ListViewStyle" TargetType="{x:Type ListView}">
-            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
-            <Setter Property="Background" Value="{Binding ButtonColor}" />
-        </Style>
-        <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource ListViewStyle}"/>
-
-        <Style x:Key="TextBlockStyle" TargetType="{x:Type Label}">
-            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
-        </Style>
-        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource TextBlockStyle}"/>
-
-        <Style  x:Key="ButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="Foreground" Value="{Binding ForegroundColor}" />
-            <Setter Property="Background" Value="{Binding  ButtonColor}" />
-        </Style>
-        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyle}"/>
-        <Style  x:Key="GridStyle" TargetType="{x:Type Grid}">
-            <Setter Property="Background" Value="{Binding BackgroundColor}" />
-        </Style>
-        <Style TargetType="{x:Type Grid}" BasedOn="{StaticResource GridStyle}"/>
-
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*">
@@ -43,7 +19,7 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Fill="{Binding ColorMessageConnection}" />
         <Label Grid.Row="0" HorizontalAlignment="Right"  Content="{Binding MessageConnection}"  Margin="0,0,50,0"></Label>
-        <Grid Grid.Row="1" Background="{Binding Mode=OneWay, Source={StaticResource GridStyle}}">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.8*">
 
