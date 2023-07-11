@@ -1,20 +1,18 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Commands.WebBrowser;
-using Project_Display_Information_For_Cryptocurrencies.Models;
-using Project_Display_Information_For_Cryptocurrencies.Service;
-using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
-using Project_Display_Information_For_Cryptocurrencies.Stores;
+﻿using Project_Display_Information_For_Cryptocurrencies.Control;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project_Display_Information_For_Cryptocurrencies.Instance;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 
 namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
     public class DetailViewModel : BaseViewModel
     {
 
-        private readonly ServiceDetailData serviceDetailData;
+        private readonly InstanceDetailData serviceDetailData;
 
         private string id;
         private ControlCoin coinsSystem;
@@ -34,7 +32,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
         {
             this.id = id;
             coinsSystem = ControlCoin.GetInstance();
-            serviceDetailData = ServiceDetailData.GetInstance()
+            serviceDetailData = InstanceDetailData.GetInstance()
                                                  .SettingInstance(OnCurrentCurrencyChanged);
             InitDetail();
         }

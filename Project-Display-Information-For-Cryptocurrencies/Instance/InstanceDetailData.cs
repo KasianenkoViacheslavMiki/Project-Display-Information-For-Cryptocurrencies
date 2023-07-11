@@ -1,4 +1,4 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
+﻿using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 using Project_Display_Information_For_Cryptocurrencies.Stores;
 using System;
 using System.Collections.Generic;
@@ -7,33 +7,33 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Display_Information_For_Cryptocurrencies.Service
+namespace Project_Display_Information_For_Cryptocurrencies.Instance
 {
-    public class ServiceDetailData
+    public class InstanceDetailData
     {
         private string priceCurrent = "usd";
 
         public DetailStore store;
 
-        private static ServiceDetailData instance;
-        private static ServiceDetailData Instance
+        private static InstanceDetailData instance;
+        private static InstanceDetailData Instance
         {
             get => instance;
             set => instance = value;
         }
-        public ServiceDetailData() 
+        public InstanceDetailData() 
         {
             store = DetailStore.GetInstance();
         }
-        public static ServiceDetailData GetInstance()
+        public static InstanceDetailData GetInstance()
         {
             if (Instance == null)
             {
-                Instance = new ServiceDetailData();
+                Instance = new InstanceDetailData();
             }
             return Instance;
         }
-        public ServiceDetailData SettingInstance(Action action)
+        public InstanceDetailData SettingInstance(Action action)
         {
             if (CurrentCurrencyChanged == null)
             {
@@ -79,7 +79,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                    //return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
                 }
                 return "";
             }
@@ -90,7 +90,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    return store.CurrencyDetailData.Market_Data.Total_Volume[priceCurrent].ToString();
+                    //return store.CurrencyDetailData.Market_Data.Total_Volume[priceCurrent].ToString();
                 }
                 return "";
             }
@@ -101,7 +101,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
             {
                 if (store.CurrencyDetailData != null)
                 {
-                    return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
+                    //return store.CurrencyDetailData.Market_Data.Price_Change_24h_In_Currency[priceCurrent].ToString();
                 }
                 return "";
             }

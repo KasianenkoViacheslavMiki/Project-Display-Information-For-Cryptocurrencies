@@ -1,12 +1,10 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
-using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
-using System;
+﻿using Project_Display_Information_For_Cryptocurrencies.API;
+using Project_Display_Information_For_Cryptocurrencies.API.Interface;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Display_Information_For_Cryptocurrencies.Service
+namespace Project_Display_Information_For_Cryptocurrencies.Control
 {
     public class ControlCoin
     {
@@ -28,21 +26,15 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
         {
             if (Instance == null)
             {
-                Instance = new ControlCoin(ServiceAPI.GetInstance());
+                Instance = new ControlCoin(APIClient.GetInstance());
             }
             return Instance;
         }
 
         public async Task<List<Item>> Trending()
         {
-            List<Item> list = new List<Item>();
-            var coinsAPI = await coins.Trending();
-
-            foreach (var item in coinsAPI)
-            {
-                list.Add(item.item);
-            }
-            return list;
+            var result = await coins.Trending();
+            return (List<Item>) result;
         }
         public async Task<CurrencyDetailData> GetCurrencyDetailAsync(string id)
         {

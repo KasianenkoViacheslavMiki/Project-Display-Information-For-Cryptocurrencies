@@ -68,14 +68,14 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Base_Target}">Tickers</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Converted_Last_String}">Price</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Converted_Volume_String}">Volume</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=BaseTarget}">Tickers</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ConvertedLastString}">Price</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=ConvertedVolumeString}">Volume</GridViewColumn>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock>
-                                    <Hyperlink Command="{Binding OpenBrowserCommand}" CommandParameter="{Binding Path= Trade_Url}" NavigateUri="{Binding Path=Trade_Url}">
+                                    <Hyperlink Command="{Binding OpenBrowserCommand}" CommandParameter="{Binding Path= TradeUrl}" NavigateUri="{Binding Path=TradeUrl}">
                                         Open
                                     </Hyperlink>
                                 </TextBlock>

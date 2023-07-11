@@ -1,5 +1,7 @@
 ﻿using Project_Display_Information_For_Cryptocurrencies.Commands.UICommands;
-using Project_Display_Information_For_Cryptocurrencies.Models;
+using Project_Display_Information_For_Cryptocurrencies.Control;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
+using Project_Display_Information_For_Cryptocurrencies.Instance;
 using Project_Display_Information_For_Cryptocurrencies.Service;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
     public class ListCoinViewModel:BaseViewModel
     {
-        private ServiceListCoinStore serviceListCoinStore;
+        private InstanceStoreListCoin serviceListCoinStore;
         private ControlCoin coinsSystem;
 
         private int page=1;
@@ -22,7 +24,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
             PrevPageCommand = new EventCommand(OnPrevPage);
 
             coinsSystem = ControlCoin.GetInstance();
-            this.serviceListCoinStore = ServiceListCoinStore.GetInstance()
+            this.serviceListCoinStore = InstanceStoreListCoin.GetInstance()
                                                             .SettingInstance(OnListCoinChanged);
             EnableNextButton = true;
             EnablePrevButton = true;

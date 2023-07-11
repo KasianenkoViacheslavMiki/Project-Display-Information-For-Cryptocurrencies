@@ -27,10 +27,10 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Name</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Coin_id}">Coin_id</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=CoinId}">Coin_id</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Symbol}">Symbol</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Slug}">Slug</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price_btc}">Price to btc</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PriceBtc}">Price to btc</GridViewColumn>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

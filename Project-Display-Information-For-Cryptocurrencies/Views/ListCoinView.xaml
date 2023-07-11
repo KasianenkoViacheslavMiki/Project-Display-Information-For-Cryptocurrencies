@@ -55,11 +55,11 @@
                     </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Name</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Symbol}">Symbol</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Current_price}">Current price</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Total_volume}">Total volume</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price_change_24h}">Price change 24h</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=High_24h}">High 24h</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Low_24h}">Low 24h</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=CurrentPrice}">Current price</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=TotalVolume}">Total volume</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PriceChange24h}">Price change 24h</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=High24h}">High 24h</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Low24h}">Low 24h</GridViewColumn>
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

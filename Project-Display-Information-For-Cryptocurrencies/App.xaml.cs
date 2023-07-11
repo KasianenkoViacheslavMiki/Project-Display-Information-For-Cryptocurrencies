@@ -19,7 +19,7 @@ namespace Project_Display_Information_For_Cryptocurrencies
         {
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel( NavigationStore.GetInstance(), new Stores.NavigationBarStore())
+                DataContext = new MainViewModel( NavigationStore.GetInstance())
             };
             MainWindow.Show();
             base.OnStartup(e);

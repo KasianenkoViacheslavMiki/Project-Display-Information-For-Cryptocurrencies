@@ -1,11 +1,11 @@
-﻿using Project_Display_Information_For_Cryptocurrencies.Models;
-using Project_Display_Information_For_Cryptocurrencies.Service;
-using Project_Display_Information_For_Cryptocurrencies.Service.Interface;
+﻿using Project_Display_Information_For_Cryptocurrencies.Control;
+using Project_Display_Information_For_Cryptocurrencies.API.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project_Display_Information_For_Cryptocurrencies.DTOModels;
 
 namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
