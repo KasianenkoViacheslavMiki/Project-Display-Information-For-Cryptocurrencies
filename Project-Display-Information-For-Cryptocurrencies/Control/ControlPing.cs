@@ -39,7 +39,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Control
         {
             if (Instance == null)
             {
-                Instance = new ControlPing(APIClient.GetInstance());
+                Instance = new ControlPing(ServiceAPI.GetInstance());
             }
             return Instance;
         }
