@@ -16,19 +16,19 @@ using System.Windows.Shapes;
 
 namespace Project_Display_Information_For_Cryptocurrencies.API
 {
-    public class APIClient : IPing, ICoins, ISearch
+    public class ServiceAPI : IPing, ICoins, ISearch
     {
         readonly string urlAPI = "https://api.coingecko.com/api/v3";
 
         HttpClient httpClient = new HttpClient();
 
-        private static APIClient instance;
-        private static APIClient Instance
+        private static ServiceAPI instance;
+        private static ServiceAPI Instance
         {
             get => instance;
             set => instance = value;
         }
-        private APIClient()
+        private ServiceAPI()
         {
             ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
@@ -37,11 +37,11 @@ namespace Project_Display_Information_For_Cryptocurrencies.API
                                  "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident / 6.0)");
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/Json"));
         }
-        public static APIClient GetInstance()
+        public static ServiceAPI GetInstance()
         {
             if (Instance == null)
             {
-                Instance = new APIClient();
+                Instance = new ServiceAPI();
             }
             return Instance;
         }

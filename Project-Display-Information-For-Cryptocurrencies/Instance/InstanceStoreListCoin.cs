@@ -32,7 +32,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Instance
 
         public InstanceStoreListCoin()
         {
-            searchControl = APIClient.GetInstance();
+            searchControl = ServiceAPI.GetInstance();
             listCoinStore = ListCoinStore.GetInstance();
         }
         public static InstanceStoreListCoin GetInstance()

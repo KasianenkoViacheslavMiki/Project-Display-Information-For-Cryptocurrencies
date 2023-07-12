@@ -26,7 +26,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Control
         {
             if (Instance == null)
             {
-                Instance = new ControlCoin(APIClient.GetInstance());
+                Instance = new ControlCoin(ServiceAPI.GetInstance());
             }
             return Instance;
         }
