@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:Project_Display_Information_For_Cryptocurrencies.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
-    <Grid>
+    <Grid Background="{DynamicResource Background}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*">
                 

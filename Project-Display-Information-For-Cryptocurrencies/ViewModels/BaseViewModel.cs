@@ -10,35 +10,29 @@ namespace Project_Display_Information_For_Cryptocurrencies.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged, IDisposable
     {
-        protected ServiceSetting serviceSetting;
+        protected ServiceTheme serviceTheme;
 
         public BaseViewModel()
         {
-            this.serviceSetting = ServiceSetting.GetInstance()
+            this.serviceTheme = ServiceTheme.GetInstance()
                                                 .SettingInstance(OnChangeTheme);
         }
 
         public void OnChangeTheme()
         {
-            OnPropertyChanged(nameof(ButtonColor));
-            OnPropertyChanged(nameof(BackgroundColor));
-            OnPropertyChanged(nameof(ForegroundColor));
             OnPropertyChanged(nameof(Toogle));
         }
         public bool Toogle
         {
             get
             {
-                return serviceSetting.Toggle;
+                return serviceTheme.Toggle;
             }
             set
             {
-                serviceSetting.Toggle = value;
+                serviceTheme.Toggle = value;
             }
         }
-        public string ButtonColor => serviceSetting.ButtonColor;
-        public string BackgroundColor => serviceSetting.BackgroundColor;
-        public string ForegroundColor => serviceSetting.ForegroundColor;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

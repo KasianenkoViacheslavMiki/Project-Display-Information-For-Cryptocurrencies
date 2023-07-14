@@ -39,8 +39,8 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Search" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="0,0,10,0"></Label>
-            <TextBox Text="{Binding SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="24" >
+            <Label Foreground="{DynamicResource Text}"  Grid.Column="0" Content="Search" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="0,0,10,0"></Label>
+            <TextBox Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"  Text="{Binding SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="24" >
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding EnterCommand}" />
                 </TextBox.InputBindings>
@@ -62,7 +62,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
+                                <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"  Content="Detail" Command="{Binding ShowDetailCommand}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

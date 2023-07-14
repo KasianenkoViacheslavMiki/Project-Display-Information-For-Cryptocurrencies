@@ -63,7 +63,7 @@
                     <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Detail" Command="{Binding ShowDetailCommand}"/>
+                                <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"  Content="Detail" Command="{Binding ShowDetailCommand}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -100,14 +100,14 @@
 
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Command="{Binding PrevPageCommand}" IsEnabled="{Binding EnablePrevButton}" FontSize="16" Content="Prev" Grid.Column="3" RenderTransformOrigin="0.5,0.5">
+            <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"  Command="{Binding PrevPageCommand}" IsEnabled="{Binding EnablePrevButton}" FontSize="16" Content="Prev" Grid.Column="3" RenderTransformOrigin="0.5,0.5">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"></Setter>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Command="{Binding NextPageCommand}" IsEnabled="{Binding EnableNextButton}" FontSize="16" Content="Next" Grid.Column="5">
+            <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"  Command="{Binding NextPageCommand}" IsEnabled="{Binding EnableNextButton}" FontSize="16" Content="Next" Grid.Column="5">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"></Setter>
