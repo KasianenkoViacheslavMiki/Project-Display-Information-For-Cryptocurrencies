@@ -105,14 +105,13 @@
 
             </RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Main" Grid.Row="0" BorderBrush="{x:Null}" Command="{Binding HomeCommand}" FontFamily="Microsoft JhengHei">
-  
+        <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}" Content="Main" Grid.Row="0" BorderBrush="{x:Null}" Command="{Binding HomeCommand}" FontFamily="Microsoft JhengHei">
         </Button>
-        <Button Content="List" Grid.Row="1" BorderBrush="{x:Null}"  Command="{Binding ListCommand}" FontFamily="Microsoft JhengHei">
+        <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"   Content="List" Grid.Row="1" BorderBrush="{x:Null}"  Command="{Binding ListCommand}" FontFamily="Microsoft JhengHei">
         </Button>
-        <Button Content="Search" Grid.Row="2" BorderBrush="{x:Null}"  Command="{Binding SearchCommand}" FontFamily="Microsoft JhengHei">
+        <Button Background="{DynamicResource Button}" Foreground="{DynamicResource Text}"   Content="Search" Grid.Row="2" BorderBrush="{x:Null}"  Command="{Binding SearchCommand}" FontFamily="Microsoft JhengHei">
         </Button>
         <CheckBox Grid.Row="6"  IsChecked="{Binding Toogle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Style="{DynamicResource CheckBoxStyle1}" VerticalAlignment="Center"/>
 
     </Grid>
-</UserControl>
+</UserControl>  

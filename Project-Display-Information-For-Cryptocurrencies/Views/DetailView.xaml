@@ -54,14 +54,14 @@
 
                     </RowDefinition>
                 </Grid.RowDefinitions>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Row="0" Content="Name" ></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="0" Content="{Binding NameCurrency}"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Row="1" Content="Price"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="1" Content="{Binding PriceCurrency}"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Row="2" Content="24 Hour Trading Vol"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="2" Content="{Binding VolumeCurrency}"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Row="3" Content="Price change in 24h"></Label>
-                <Label HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="3" Content="{Binding PriceChangeCurrency}"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Row="0" Content="Name" ></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="0" Content="{Binding NameCurrency}"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Row="1" Content="Price"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="1" Content="{Binding PriceCurrency}"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Row="2" Content="24 Hour Trading Vol"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="2" Content="{Binding VolumeCurrency}"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Row="3" Content="Price change in 24h"></Label>
+                <Label Foreground="{DynamicResource Text}"  HorizontalAlignment="Center"  FontSize="25" Grid.Column="1" Grid.Row="3" Content="{Binding PriceChangeCurrency}"></Label>
             </Grid>
         </Grid>
         <ListView Grid.Row="2" Background="{x:Null}" ItemsSource="{Binding Tickers}"  >
@@ -75,7 +75,7 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock>
-                                    <Hyperlink Command="{Binding OpenBrowserCommand}" CommandParameter="{Binding Path= TradeUrl}" NavigateUri="{Binding Path=TradeUrl}">
+                                    <Hyperlink Foreground="{DynamicResource Text}"  Command="{Binding OpenBrowserCommand}" CommandParameter="{Binding Path= TradeUrl}" NavigateUri="{Binding Path=TradeUrl}">
                                         Open
                                     </Hyperlink>
                                 </TextBlock>
