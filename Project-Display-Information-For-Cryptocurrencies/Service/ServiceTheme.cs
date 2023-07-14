@@ -13,7 +13,7 @@ namespace Project_Display_Information_For_Cryptocurrencies.Service
     public class ServiceTheme
     {
 
-        private bool toggle = true;
+        private bool toggle = false;
 
         Dictionary<string, string> theme = new Dictionary<string, string>()
         {
